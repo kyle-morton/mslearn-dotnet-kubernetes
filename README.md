@@ -1,3 +1,15 @@
+### KM Useful Kubernetes Commands
+-  kubectl apply -f backend-deploy.yml (KB creates a new pod instance using the yml file. NOTE: Kubernetes is resilient and keeps the pod state exactly as it is in the yml file - if a pod fails, it will create a new one to takes it's place).
+
+- kubectl get pods (displays all pod instances running [all your running containers] including those that spinning up or terminating)
+
+- kubectl scale --replicas=5 deployment/pizzabackend (KB will create more pods of the given pod. NOTE: We're calling out the deployment/ name instead of just pizzabackend)
+
+- kubectl delete pod pizzafrontend-7644df9875-8qnsn (deletes a given pod instance. NOTE: this must match the name given under 'kubetcl get pods' command)
+
+- kubectl get deployments --all-namespaces (gets names of all deployed containers. NOTE: These are the deployments themselves which is what you'll need to delete if you want to delete the pod and have it NOT restart)
+
+- kubectl delete -n default deployment pizzabackend (fully deletes the deployment so it will not be restarted)
 
 # Contributing
 
